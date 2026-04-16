@@ -17,5 +17,5 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound()
   }
 
-  return <ProductDetail product={product} />
+  return <ProductDetail product={product as any} />
 }

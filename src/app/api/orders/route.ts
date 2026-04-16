@@ -47,7 +47,7 @@ export async function POST(request: Request) {
           discount,
           total,
         },
-        payment: null,
+        payment: undefined,
         items: {
           create: body.items.map((item: any) => ({
             productId: item.productId,

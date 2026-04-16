@@ -36,7 +36,7 @@ export default async function HomePage() {
                 </p>
               )}
             </div>
-            <ProductGrid products={collection.products} />
+            <ProductGrid products={collection.products as any} />
           </div>
         </section>
       ))}

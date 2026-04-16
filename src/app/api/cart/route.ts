@@ -18,7 +18,7 @@ export async function POST(request: Request) {
       const product = products.find((p) => p.id === item.productId)
       if (!product) return null
 
-      const stock = product.stock[item.size] || 0
+      const stock = (product.stock as any)?.[item.size] || 0
 
       return {
         productId: item.productId,
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
         quantity: item.quantity,
         name: product.name,
         price: product.price,
-        image: product.images[0],
+        image: (product.images as any)?.[0] || '',
         stock: stock,
       }
     }).filter(Boolean)

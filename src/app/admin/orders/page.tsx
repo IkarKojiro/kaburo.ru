@@ -36,7 +36,7 @@ export default async function OrdersPage() {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => {
+            {orders.map((order: any) => {
               const customer = order.customer as any
               const delivery = order.delivery as any
               const totals = order.totals as any
@@ -67,7 +67,7 @@ export default async function OrdersPage() {
                     <details style={{ fontSize: '0.75rem', color: 'var(--muted)', marginTop: '0.25rem' }}>
                       <summary style={{ cursor: 'pointer' }}>Подробнее</summary>
                       <ul style={{ margin: '0.5rem 0 0', paddingLeft: '1.25rem' }}>
-                        {order.items.map((item) => (
+                        {order.items.map((item: any) => (
                           <li key={item.id}>
                             {item.name} ({item.size}) × {item.quantity} = {item.lineTotal} ₽
                           </li>
