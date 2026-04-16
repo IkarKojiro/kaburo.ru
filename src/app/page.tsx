@@ -1,6 +1,8 @@
 import { prisma } from '@/lib/db'
 import { ProductGrid } from '@/components/product/ProductGrid'
 
+export const dynamic = 'force-dynamic'
+
 export default async function HomePage() {
   const collections = await prisma.collection.findMany({
     orderBy: { order: 'asc' },
