@@ -16,7 +16,7 @@ export function ProductGrid({ products }: ProductGridProps) {
 
   return (
     <div className="product-grid">
-      {products.map((product) => (
+      {products.map((product: any) => (
         <ProductCard key={product.id} product={product} />
       ))}
     </div>

@@ -25,7 +25,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {collections.map((collection) => (
+      {collections.map((collection: any) => (
         <section key={collection.id} className="shop" id="catalog">
           <div className="container">
             <div className="section-head">

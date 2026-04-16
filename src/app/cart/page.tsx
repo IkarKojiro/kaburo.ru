@@ -82,7 +82,7 @@ export default function CartPage() {
             </Link>
           </div>
 
-          {cartItems.map((item) => (
+          {cartItems.map((item: any) => (
             <div key={`${item.productId}-${item.size}`} className="cart-row">
               <Link href={`/product/${item.productId}`} className="cart-image-link">
                 <Image
@@ -115,7 +115,7 @@ export default function CartPage() {
                       )
                     }
                   >
-                    {Array.from({ length: Math.min(item.stock || 3, 3) }, (_, i) => i + 1).map((n) => (
+                    {Array.from({ length: Math.min(item.stock || 3, 3) }, (_, i) => i + 1).map((n: any) => (
                       <option key={n} value={n}>
                         {n}
                       </option>

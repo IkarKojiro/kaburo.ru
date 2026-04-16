@@ -98,7 +98,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
             required
           >
             <option value="">Размер</option>
-            {product.sizes.map((size) => {
+            {product.sizes.map((size: any) => {
               const stock = product.stock[size] || 0
               return (
                 <option key={size} value={size} disabled={stock <= 0}>

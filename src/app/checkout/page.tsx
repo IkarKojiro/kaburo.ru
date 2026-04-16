@@ -92,8 +92,8 @@ export default function CheckoutPage() {
           comment: formData.comment || undefined,
           promoCode: formData.promoCode || undefined,
           consentAccepted: formData.consent,
-          items: items.map((item) => {
-            const product = cartItems.find((p) => p.productId === item.productId)
+          items: items.map((item: any) => {
+            const product = cartItems.find((p: any) => p.productId === item.productId)
             return {
               productId: item.productId,
               name: product?.name || '',
@@ -298,7 +298,7 @@ export default function CheckoutPage() {
         <aside className="panel summary-panel">
           <h2>Ваш заказ</h2>
           <div id="summaryItems">
-            {cartItems.map((item) => (
+            {cartItems.map((item: any) => (
               <div key={`${item.productId}-${item.size}`} className="summary-item">
                 <img src={item.image} alt={item.name} />
                 <div>

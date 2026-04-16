@@ -177,7 +177,7 @@ export default function CollectionsPage() {
     // Save new order to backend
     try {
       await Promise.all(
-        updatedCollections.map((col) =>
+        updatedCollections.map((col: any) =>
           fetch(`/api/admin/collections/${col.id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -349,11 +349,11 @@ export default function CollectionsPage() {
         onDragEnd={handleDragEnd}
       >
         <SortableContext
-          items={collections.map((c) => c.id)}
+          items={collections.map((c: any) => c.id)}
           strategy={verticalListSortingStrategy}
         >
           <div style={{ display: 'grid', gap: '1rem' }}>
-            {collections.map((collection) => (
+            {collections.map((collection: any) => (
               <SortableCollection
                 key={collection.id}
                 collection={collection}

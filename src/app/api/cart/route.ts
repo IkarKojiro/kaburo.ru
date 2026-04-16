@@ -9,13 +9,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Invalid items' }, { status: 400 })
     }
 
-    const productIds = items.map((item) => item.productId)
+    const productIds = items.map((item: any) => item.productId)
     const products = await prisma.product.findMany({
       where: { id: { in: productIds } },
     })
 
-    const cartItems = items.map((item) => {
-      const product = products.find((p) => p.id === item.productId)
+    const cartItems = items.map((item: any) => {
+      const product = products.find((p: any) => p.id === item.productId)
       if (!product) return null
 
       const stock = (product.stock as any)?.[item.size] || 0

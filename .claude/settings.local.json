@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(xargs grep *)",
+      "Bash(cat)",
+      "Bash(chmod +x /tmp/check_types.sh)",
+      "Bash(/tmp/check_types.sh)"
     ]
   }
 }

@@ -201,7 +201,7 @@ export default function CollectionProductsPage() {
     // Save new order to backend
     try {
       await Promise.all(
-        updatedProducts.map((prod) =>
+        updatedProducts.map((prod: any) =>
           fetch(`/api/admin/products/${prod.id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -534,11 +534,11 @@ export default function CollectionProductsPage() {
         onDragEnd={handleDragEnd}
       >
         <SortableContext
-          items={products.map((p) => p.id)}
+          items={products.map((p: any) => p.id)}
           strategy={rectSortingStrategy}
         >
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1.5rem' }}>
-            {products.map((product) => (
+            {products.map((product: any) => (
               <SortableProduct
                 key={product.id}
                 product={product}
