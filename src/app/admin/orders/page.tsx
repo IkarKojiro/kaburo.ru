@@ -126,8 +126,8 @@ export default async function OrdersPage() {
 
       <div style={{ marginTop: '1.5rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
         <p>Всего заказов: {orders.length}</p>
-        <p>Оплачено: {orders.filter(o => o.status === 'paid').length}</p>
-        <p>Ожидает оплаты: {orders.filter(o => o.status === 'awaiting_payment').length}</p>
+        <p>Оплачено: {orders.filter((o: any) => o.status === 'paid').length}</p>
+        <p>Ожидает оплаты: {orders.filter((o: any) => o.status === 'awaiting_payment').length}</p>
       </div>
     </main>
   )
