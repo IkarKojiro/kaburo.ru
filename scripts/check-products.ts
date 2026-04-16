@@ -11,7 +11,7 @@ async function main() {
   })
 
   console.log('\nCollections:')
-  collections.forEach(col => {
+  collections.forEach((col: any) => {
     console.log(`- ${col.name} (${col.id}): ${col._count.products} products`)
   })
 
@@ -26,7 +26,7 @@ async function main() {
   })
 
   console.log(`\nTotal products: ${products.length}`)
-  products.forEach(prod => {
+  products.forEach((prod: any) => {
     console.log(`- ${prod.name} (${prod.id}): collection=${prod.collectionId}, order=${prod.order}`)
   })
 }
