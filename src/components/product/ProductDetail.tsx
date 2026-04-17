@@ -67,6 +67,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
             width={560}
             height={700}
             priority
+            quality={90}
           />
         </div>
         {product.images.length > 1 && (
@@ -77,7 +78,14 @@ export function ProductDetail({ product }: ProductDetailProps) {
                 className={`thumb-btn ${selectedImage === idx ? 'active' : ''}`}
                 onClick={() => setSelectedImage(idx)}
               >
-                <Image src={img} alt={`${product.name} ${idx + 1}`} width={54} height={68} />
+                <Image
+                  src={img}
+                  alt={`${product.name} ${idx + 1}`}
+                  width={54}
+                  height={68}
+                  loading="lazy"
+                  quality={75}
+                />
               </button>
             ))}
           </div>

@@ -15,6 +15,8 @@ export function ProductCard({ product }: ProductCardProps) {
           alt={product.name}
           width={400}
           height={500}
+          loading="lazy"
+          quality={85}
         />
         {product.images[1] && (
           <Image
@@ -23,6 +25,8 @@ export function ProductCard({ product }: ProductCardProps) {
             width={400}
             height={500}
             className="product-media__hover"
+            loading="lazy"
+            quality={85}
           />
         )}
       </div>

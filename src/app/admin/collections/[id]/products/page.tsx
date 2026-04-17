@@ -83,6 +83,8 @@ function SortableProduct({ product, onEdit, onDelete }: {
             alt={product.name}
             fill
             style={{ objectFit: 'cover' }}
+            loading="lazy"
+            quality={80}
             onError={(e) => {
               e.currentTarget.style.display = 'none'
             }}

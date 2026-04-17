@@ -90,6 +90,8 @@ export default function CartPage() {
                   alt={item.name}
                   width={92}
                   height={118}
+                  loading="lazy"
+                  quality={80}
                 />
               </Link>
 
