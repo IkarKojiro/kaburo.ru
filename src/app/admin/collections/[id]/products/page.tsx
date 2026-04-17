@@ -26,9 +26,11 @@ interface Product {
   id: string
   name: string
   price: number
+  description?: string | null
   images: string[]
   sizes: string[]
   stock: Record<string, number>
+  colors: string[]
   isNew: boolean
   order: number
 }
@@ -234,6 +236,10 @@ export default function CollectionProductsPage() {
       const colors = JSON.parse(formData.colors)
       const images = formData.images.split('\n').map(s => s.trim()).filter(Boolean)
 
+      // При редактировании сохраняем текущий order товара
+      const currentProduct = editingId ? products.find(p => p.id === editingId) : null
+      const orderValue = currentProduct ? currentProduct.order : products.length + 1
+
       const payload = {
         id: formData.id,
         name: formData.name,
@@ -245,7 +251,7 @@ export default function CollectionProductsPage() {
         images,
         isNew: formData.isNew,
         collectionId,
-        order: products.length + 1,
+        order: orderValue,
       }
 
       const url = editingId
@@ -284,15 +290,20 @@ export default function CollectionProductsPage() {
   }
 
   const handleEdit = (product: Product) => {
+    // Убедимся, что sizes, images и colors - это массивы
+    const sizes = Array.isArray(product.sizes) ? product.sizes : []
+    const images = Array.isArray(product.images) ? product.images : []
+    const colors = Array.isArray(product.colors) ? product.colors : ['BLACK']
+
     setFormData({
       id: product.id,
       name: product.name,
       price: product.price,
-      description: '',
-      sizes: product.sizes.join(','),
+      description: product.description || '',
+      sizes: sizes.join(','),
       stock: JSON.stringify(product.stock),
-      colors: '["BLACK"]',
-      images: product.images.join('\n'),
+      colors: JSON.stringify(colors),
+      images: images.join('\n'),
       isNew: product.isNew,
     })
     setEditingId(product.id)
